@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+</head>
+<body style="background-color: black;">
+    <!-- navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark mb-4">
+        <div class="container-fluid">
+            <img src="../static/4.png" height="100" width="100"/>
+          <a class="navbar-brand mx-3 text-light " style="font-size: 2rem; font-weight:600;" href="{{ url_for('home') }}" >DiagnoSphere</a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <!-- empty div -->
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            </ul>
+            <div class="d-flex">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0" style="font-size: 1.2rem; font-weight:400;">
+                    <li class="nav-item">
+                      <a class="nav-link active text-light" aria-current="page" href="{{ url_for('home') }}">Home</a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link text-light" href="{{ url_for('aboutUs') }}">About Us</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                      <a class="nav-link dropdown-toggle text-light" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        Services
+                      </a>
+                      <ul class="dropdown-menu bg-dark" aria-labelledby="navbarDropdown">
+                        <li><a class="dropdown-item text-light text-hover" href="{{ url_for('cancerPage') }}">Breast Cancer</a></li>
+                        <li><hr class="dropdown-divider bg-light"></li>
+                        <li><a class="dropdown-item text-light" href="{{ url_for('diabetesPage') }}">Diabetes</a></li>
+                        <li><hr class="dropdown-divider bg-light"></li>
+                        <li><a class="dropdown-item text-light" href="{{ url_for('heartPage') }}">Heart Disease</a></li>
+                        <li><hr class="dropdown-divider bg-light"></li>
+                        <li><a class="dropdown-item text-light" href="{{ url_for('malariaPage') }}">Malaria</a></li>
+                      </ul>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link text-light" href="{{ url_for('contactUs') }}">Contact Us</a>
+                    </li>
+                    {% if logged_in %}
+                        <li class="nav-item">
+                            <a class="nav-link text-light" href="{{ url_for('logout') }}">{{ session['email'] }}</a>
+                        </li>
+                    {% else %}
+                        <li class="nav-item">
+                            <a class="nav-link text-light" href="{{ url_for('login') }}">Login</a>
+                        </li>
+                    {% endif %}
+                  </ul>
+            </div>
+          </div>
+        </div>
+      </nav>
+       <!-- navbar -->
+       <div class="container">
+        {% if message %}
+        <div class="alert alert-danger">{{ message }}</div>
+        {% endif %}
+        <div class="p-4 p-md-5 mb-4 text-body-emphasis bg-body-secondary"
+            style="border-radius: 30px;  background-image: url(/static/camilo-jimenez-vGu08RYjO-s-unsplash.jpg);">
+            <div class="col-lg-6 px-0">
+                <h1 class="display-4 .fst-italic" style="color: #ffffff;"><b>DiagnoSphere - Precision Health in Your
+                        Sphere</b></h1>
+                <p class="lead my-3" style="color: #ffffff;">Navigating Tomorrow's Health, Today.</p>
+                <p class="lead mb-0" style="color: #ffffff;">
+                        <a href="{{ url_for('aboutUs') }}"
+                        class="text-body-emphasis fw-bold" style="text-decoration:none;"><b
+                            style="color: #ffffff; text-decoration:none;">
+                            Know More</b>
+                        </a>
+                    </p>
+            </div>
+        </div>
+        <div class="row mb-2">
+            <div class="col-md-6">
+                <div class="row g-0 overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative"
+                    style="border-radius: 20px; border: 2.5px solid #ffffff;">
+                    <div class="col p-4 d-flex flex-column position-static" style="color: #ffffff;">
+                        <b style="color: #ffffff; font-size:large;">Test 1</b>
+                        <h3 class="mb-0" style="color: #ffffff;">Diabetes</h3>
+                        <div class="mb-1 text-body-secondary" style="color: #ffffff;"></div>
+                        <p class="card-text mb-auto" style="color: #ffffff;">Symptoms of Diabetes are :-
+                        <ul style="color: #ffffff;">
+                            <li>Feeling more thirsty than usual</li>
+                            <li>Urinating often</li>
+                            <li>Loosing weight without trying</li>
+                            <li>Feeling tired and weak</li>
+                        </ul>
+                        </p>
+                       <a href="">
+                        <p>
+                       </a>
+                        <a href="{{ url_for('diabetesPage') }}">
+                            <b>Test Now</b>
+                            <svg class="bi">
+                                <use xlink:href="#chevron-right"></use>
+                            </svg>
+                        </a>
+                    </div>
+                    <div class="col-auto d-none d-lg-block">
+                        <img src="/static/diabetes.jpg" alt="" width="200" height="300">
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="row g-0 overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative"
+                    style="border-radius:20px; border: 2.5px solid #ffffff;">
+                    <div class="col p-4 d-flex flex-column position-static" style="color: #ffffff;">
+                        <b style="color: #ffffff; font-size:large;">Test 2</b>
+                        <h3 class="mb-0" style="color: #ffffff;">Breast Cancer</h3>
+                        <div class="mb-1 text-body-secondary" style="color: #ffffff;"></div>
+                        <p class="card-text mb-auto" style="color: #ffffff;">The symptoms of Breast Cancer are:-
+                        <ul>
+                            <li>New lump in the breast or underarm</li>
+                            <li>Thickening or swelling of part of the breast</li>
+                            <li>Irritation or dimpling of breast skin.</li>
+                            <li>Irritation or dimpling of breast skin</li>
+                        </ul>
+                        </p>
+                        <a href="{{ url_for('cancerPage')}}" class="icon-link gap-1 icon-link-hover stretched-link"
+                            style="color: #ffffff; text-decoration:none">
+                            <b>Test Now</b>
+                            <svg class="bi">
+                                <use xlink:href="#chevron-right"></use>
+                            </svg>
+                        </a>
+                    </div>
+                    <div class="col-auto d-none d-lg-block">
+                        <img src="/static/breast cancer.jpg" alt="" width="200" height="300">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row mb-2">
+            <div class="col-md-6">
+                <div class="row g-0 overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative"
+                    style="border-radius:20px; border:2.5px solid #ffffff;">
+                    <div class="col p-4 d-flex flex-column position-static" style="color: #ffffff;">
+                        <b style="color: #ffffff;">Test 3</b>
+                        <h3 class="mb-0" style="color: #ffffff;">Heart Disease</h3>
+                        <div class="mb-1 text-body-secondary" style="color: #ffffff;"></div>
+                        <p class="card-text mb-auto" style="color: #ffffff;">The Symptoms of Heart Disease are:-
+                        <ul style="color: #ffffff;">
+                            <li>Pain, numbness or weakness in the legs or arms</li>
+                            <li>Chest pain, chest tightness and chest pressure</li>
+                            <li>Pain in the neck, jaw, throat or upper belly area</li>
+                            <li>Shortness of breath</li>
+                        </ul>
+                        </p>
+                        <a href="{{ url_for('heartPage')}}" class="icon-link gap-1 icon-link-hover stretched-link"
+                            style="color: #ffffff; text-decoration:none;">
+                            <b>Test Now</b>
+                            <svg class="bi">
+                                <use xlink:href="#chevron-right"></use>
+                            </svg>
+                        </a>
+                    </div>
+                    <div class="col-auto d-none d-lg-block">
+                        <img src="/static/HEart.jpg" alt="" width="200" height="300">
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="row g-0 overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative"
+                    style="border-radius: 20px; border:2.5px solid #ffffff">
+                    <div class="col p-4 d-flex flex-column position-static" style="color: #ffffff;">
+                        <b style="color: #ffffff;">Test 4</b>
+                        <h3 class="mb-0" style="color: #ffffff;">Malaria</h3>
+                        <div class="mb-1 text-body-secondary" style="color: #ffffff;"></div>
+                        <p class="card-text mb-auto" style="color: #ffffff;">The symptoms of Malaria are:-
+                        <ul style="color: #ffffff;">
+                            <li>Diarrhea</li>
+                            <li>Fatigue</li>
+                            <li>Rapid Breathing</li>
+                            <li>Nausea and Vomiting</li>
+                        </ul>
+                        </p>
+                        <a href="{{ url_for('malariaPage') }}" class="icon-link gap-1 icon-link-hover stretched-link"
+                            style="color: #ffffff; text-decoration:none;">
+                            <b>Test Now</b>
+                            <svg class="bi">
+                                <use xlink:href="#chevron-right"></use>
+                            </svg>
+                        </a>
+                    </div>
+                    <div class="col-auto d-none d-lg-block">
+                        <img src="/static/malaria.jpg" alt="" width="200" height="300">
+    
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+        <footer class="py-3 " style=" background-color: #2b3035 !important;">
+          <ul class="nav justify-content-center border-bottom pb-3 mb-3">
+            <li class="nav-item"><a href="{{ url_for('home') }}" class="nav-link px-2 text-muted">Home</a></li>
+            <li class="nav-item"><a href="{{ url_for('aboutUs') }}" class="nav-link px-2 text-muted">About Us</a></li>
+            <li class="nav-item"><a href="{{ url_for('contactUs') }}" class="nav-link px-2 text-muted">Contact Us</a></li>
+          </ul>
+          <p class="text-center text-muted">© 2022 Company, Inc</p>
+        </footer>
+</body>
+</html>

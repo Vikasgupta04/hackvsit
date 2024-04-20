@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+</head>
+<body style="background-color: black;">
+    <!-- navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark mb-4">
+        <div class="container-fluid">
+            <img src="../static/4.png" height="100" width="100"/>
+          <a class="navbar-brand mx-3 text-light " style="font-size: 2rem; font-weight:600;" href="{{ url_for('home') }}" >DiagnoSphere</a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <!-- empty div -->
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            </ul>
+            <div class="d-flex">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0" style="font-size: 1.2rem; font-weight:400;">
+                    <li class="nav-item">
+                      <a class="nav-link active text-light" aria-current="page" href="{{ url_for('home') }}">Home</a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link text-light" href="{{ url_for('aboutUs') }}">About Us</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                      <a class="nav-link dropdown-toggle text-light" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        Services
+                      </a>
+                      <ul class="dropdown-menu bg-dark" aria-labelledby="navbarDropdown">
+                        <li><a class="dropdown-item text-light text-hover" href="{{ url_for('cancerPage') }}">Breast Cancer</a></li>
+                        <li><hr class="dropdown-divider bg-light"></li>
+                        <li><a class="dropdown-item text-light" href="{{ url_for('diabetesPage') }}">Diabetes</a></li>
+                        <li><hr class="dropdown-divider bg-light"></li>
+                        <li><a class="dropdown-item text-light" href="{{ url_for('heartPage') }}">Heart Disease</a></li>
+                        <li><hr class="dropdown-divider bg-light"></li>
+                        <li><a class="dropdown-item text-light" href="{{ url_for('malariaPage') }}">Malaria</a></li>
+                      </ul>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link text-light" href="{{ url_for('contactUs') }}">Contact Us</a>
+                    </li>
+                  </ul>
+            </div>
+          </div>
+        </div>
+      </nav>
+  {% if message %}
+  <div class="alert alert-danger">{{ message }}</div>
+  {% endif %}
+<div > 
+<div class="container" style="color:#ffffff">
+    <h2>Problem Statement</h2>
+    <p>The envisioned project holds significant value in the medical domain. It proposes the development of a machine
+        learning-driven web application dedicated to medical diagnostics. The project entails the creation of a machine
+        learning model, seamlessly integrated into the web application, enabling users to upload their medical data for
+        analysis. The application will employ the developed machine learning model to detect health diseases.
+        Subsequently, users can schedule appointments with doctors through the web application if they seek professional
+        advice. Additionally, a chat (email) feature will facilitate communication between patients and doctors within
+        the platform.</p>
+
+    <h2>Why this Project?</h2>
+    <p>While humans are prone to errors, machines are not, and their predicted outcomes can be assessed for accuracy
+        through machine learning. Bearing this in mind, extensive research was conducted in the realms of allopathic,
+        homeopathic, and ayurvedic data. Due to the limited availability of research papers for patient datasets in
+        homeopathy and ayurvedic medicine, the decision was made to utilize allopathic datasets accessible on platforms
+        such as Kaggle and the UCI machine learning portals.</p>
+
+    <h2>Technical aspect</h2>
+    <p>This webapp was developed using Flask Web Framework. The models used to predict the diseases were trained on
+        large Datasets. All the links for datasets and the python notebooks used for model creation are mentioned below
+        in this readme. The webapp can predict following Diseases:</p>
+    <ul>
+        <li>Diabetes</li>
+        <li>Breast Cancer</li>
+        <li>Heart Disease</li>
+        <!-- <li>Kidney Disease</li> -->
+        <li>Liver Disease</li>
+        <li>Malaria</li>
+    </ul>
+
+    <h3>Models with their Accuracy of Prediction</h3>
+    <table>
+        <tr>
+            <th>Disease</th>
+            <th>Type of Model</th>
+            <th>Accuracy</th>
+        </tr>
+        <tr>
+            <td>Diabetes</td>
+            <td>Machine Learning Model</td>
+            <td>74.03%</td>
+        </tr>
+        <tr>
+            <td>Breast Cancer</td>
+            <td>Machine Learning Model</td>
+            <td>96.49%</td>
+        </tr>
+        <tr>
+            <td>Malaria</td>
+            <td>Deep Learning Model(CNN)</td>
+            <td>94.78%</td>
+        </tr>
+    </table>
+
+    <p><strong>NOTE</strong><br>
+        ==> Python version 3.6.8 was used for the whole project.<br></p>
+
+</div>
+
+</div>
+<br>
+<footer class="py-3 " style=" background-color: #2b3035 !important;">
+  <ul class="nav justify-content-center border-bottom pb-3 mb-3">
+    <li class="nav-item"><a href="{{ url_for('home') }}" class="nav-link px-2 text-muted">Home</a></li>
+    <li class="nav-item"><a href="{{ url_for('aboutUs') }}" class="nav-link px-2 text-muted">About Us</a></li>
+    <li class="nav-item"><a href="{{ url_for('contactUs') }}" class="nav-link px-2 text-muted">Contact Us</a></li>
+  </ul>
+  <p class="text-center text-muted">© 2022 Company, Inc</p>
+</footer>
+</body>
+</html>
